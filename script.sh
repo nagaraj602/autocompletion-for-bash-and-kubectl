@@ -26,7 +26,7 @@ if ! grep -q "alias k=kubectl" "$BASHRC_FILE"; then
 alias k=kubectl
 # Only load completion if kubectl is actually installed on this server
 if command -v kubectl &> /dev/null; then
-    source <(kubectl completion bash)
+    source <(kubectl completion bash) 
     complete -o default -F __start_kubectl k > /dev/null 2>&1;
 fi
 EOF
@@ -39,8 +39,8 @@ BLESH_DIR="$HOME/.local/share/blesh"
 
 if [ ! -d "$BLESH_DIR" ]; then
     # echo "Compiling and installing ble.sh (Bash Line Editor)..."
-    git clone --recursive --depth 1 --shallow-submodules https://github.com/akinomyoga/ble.sh.git /tmp/ble.sh-src
-    make -C /tmp/ble.sh-src install PREFIX="$HOME/.local"
+    git clone --recursive --depth 1 --shallow-submodules https://github.com/akinomyoga/ble.sh.git /tmp/ble.sh-src > /dev/null 2>&1;
+    make -C /tmp/ble.sh-src install PREFIX="$HOME/.local" > /dev/null 2>&1;
     rm -rf /tmp/ble.sh-src
 else
     echo "ble.sh already installed in $BLESH_DIR. Skipping compilation."
@@ -64,4 +64,4 @@ echo "======================================================"
 echo "Setup complete!"
 source ~/.bashrc
 echo "You need to close your Terminal and Re-Open it"
-exit
+exit 1
