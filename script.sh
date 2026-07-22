@@ -61,7 +61,6 @@ fi
 
 echo ""
 echo "======================================================"
-echo "Setup complete!"
+echo "Setup complete! If it doesn't work, Run below command or restart your terminal"
+echo "source ~/.bashrc"
 source ~/.bashrc
-echo "You need to close your Terminal and Re-Open it"
-exit 1
