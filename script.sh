@@ -27,7 +27,7 @@ alias k=kubectl
 # Only load completion if kubectl is actually installed on this server
 if command -v kubectl &> /dev/null; then
     source <(kubectl completion bash)
-    complete -o default -F __start_kubectl k
+    complete -o default -F __start_kubectl k > /dev/null 2>&1;
 fi
 EOF
 else
