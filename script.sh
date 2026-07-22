@@ -63,4 +63,5 @@ echo ""
 echo "======================================================"
 echo "Setup complete!"
 source ~/.bashrc
-echo "======================================================"
+echo "You need to close your Terminal and Re-Open it"
+exit
