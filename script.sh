@@ -5,12 +5,12 @@ echo "Starting terminal UX bootstrapping..."
 
 # 1. Install prerequisites based on the OS package manager
 if command -v apt-get &> /dev/null; then
-    sudo apt-get update -y
-    sudo apt-get install -y bash-completion make gawk
+    sudo apt-get update -y > /dev/null 2>&1;
+    sudo apt-get install -y bash-completion make gawk > /dev/null 2>&1;
 elif command -v dnf &> /dev/null; then
-    sudo dnf install -y bash-completion make gawk
+    sudo dnf install -y bash-completion make gawk > /dev/null 2>&1;
 elif command -v yum &> /dev/null; then
-    sudo yum install -y bash-completion make gawk
+    sudo yum install -y bash-completion make gawk > /dev/null 2>&1;
 else
     echo "Warning: Could not detect apt/dnf/yum. Ensure bash-completion, git, make, and gawk are installed manually."
 fi
@@ -39,7 +39,7 @@ BLESH_DIR="$HOME/.local/share/blesh"
 
 if [ ! -d "$BLESH_DIR" ]; then
     # echo "Compiling and installing ble.sh (Bash Line Editor)..."
-    git clone --recursive --depth 1 --shallow-submodules https://github.com/akinomyaka/ble.sh.git /tmp/ble.sh-src
+    git clone --recursive --depth 1 --shallow-submodules https://github.com/akinomyoga/ble.sh.git /tmp/ble.sh-src
     make -C /tmp/ble.sh-src install PREFIX="$HOME/.local"
     rm -rf /tmp/ble.sh-src
 else
