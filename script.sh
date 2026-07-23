@@ -104,4 +104,4 @@ echo ""
 echo "======================================================"
 echo "Setup complete! If it doesn't work, Run below command or restart your terminal"
 echo "source ~/.bashrc"
-source ~/.bashrc
+
